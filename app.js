@@ -6,7 +6,9 @@ const connectToDatabase = require('./services/db');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 
-const bookRoutes = require('./routes/bookRoutes');
+const userRoutes = require('./routes/userRoutes');
+const walletRoutes = require('./routes/walletRoutes');
+
 
 require('dotenv').config();
 
@@ -18,7 +20,8 @@ connectToDatabase();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/api/books', bookRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/wallets', walletRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Backend!');
