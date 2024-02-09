@@ -112,7 +112,7 @@ const graph = {
     // Add more stations as needed
 };
 
-// Usage example:
+
 const start = 1; // Start station
 const time = 0; // Start time
 const last = 4; // Destination station
