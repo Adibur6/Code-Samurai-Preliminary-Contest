@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const connectToDatabase = require('./services/db');
 const stationRoutes = require('./routes/stationRoutes');
+const trainRoutes = require('./routes/trainRoutes');
 
 
 const cors = require('cors');
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/api/stations', stationRoutes);
+app.use('/api/trains', trainRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Backend!');
