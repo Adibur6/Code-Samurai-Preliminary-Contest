@@ -14,26 +14,22 @@ exports.getWallet = async (req, res) => {
 
     res.json(responseWallet);
 
-
   } catch (err) {
     // Handle errors
     return res.status(500).json({ message: err.message });
   }
 };
 
-
 const mapWalletToResponse = (wallet) => {
-    return {
-      wallet_id: wallet.wallet_id,
-      wallet_balance: wallet.balance,
-      wallet_user: {
-        user_id: wallet.wallet_user.user_id,
-        user_name: wallet.wallet_user.user_name
-      }
-    };
+  return {
+    wallet_id: wallet.wallet_id,
+    balance: wallet.balance, // Changed from 'wallet_balance' to 'balance'
+    wallet_user: {
+      user_id: wallet.wallet_user.user_id,
+      user_name: wallet.wallet_user.user_name
+    }
   };
-  
-
+};
 
 // Function to add funds to the wallet
 exports.addWalletBalance = async (req, res) => {
@@ -63,7 +59,7 @@ exports.addWalletBalance = async (req, res) => {
     // Respond with the updated wallet object and 200 status
     res.status(200).json({
       wallet_id: updatedWallet.wallet_id,
-      balance: updatedWallet.balance,
+      balance: updatedWallet.balance, // Changed from 'wallet_balance' to 'balance'
       wallet_user: updatedWallet.wallet_user
     });
 
