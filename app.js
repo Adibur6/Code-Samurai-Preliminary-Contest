@@ -8,6 +8,10 @@ const trainRoutes = require('./routes/trainRoutes');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 
+const userRoutes = require('./routes/userRoutes');
+const walletRoutes = require('./routes/walletRoutes');
+
+
 require('dotenv').config();
 
 const app = express();
@@ -20,6 +24,8 @@ app.use(cors());
 
 app.use('/api/stations', stationRoutes);
 app.use('/api/trains', trainRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/wallets', walletRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Backend!');
