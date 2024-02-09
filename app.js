@@ -1,12 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const connectToDatabase = require('./services/db');
+const stationRoutes = require('./routes/stationRoutes');
 
 
 const cors = require('cors');
 const bodyParser = require("body-parser");
-
-const bookRoutes = require('./routes/bookRoutes');
 
 require('dotenv').config();
 
@@ -18,7 +17,7 @@ connectToDatabase();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/api/books', bookRoutes);
+app.use('/api/stations', stationRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Backend!');
